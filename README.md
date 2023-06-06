@@ -1,5 +1,5 @@
-IA Neural NetWorking Tesla Simulation
-Jogo de rede neural feito em Python 
+✌ IA Neural NetWorking Tesla Simulation
+* Esse é um jogo de rede neural, no qual você poderá construir caminhos desafiadores para a máquina solucionar.
 
 🚀 Começando
 * Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
