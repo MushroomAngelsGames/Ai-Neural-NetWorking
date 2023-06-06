@@ -1,0 +1,153 @@
+class Weights():
+    def __init__(self,isFirst,betterWeights = None,isWin = False) -> None:
+        self.weightsDisTop =0
+        self.weightsDisBottom =0
+        self.weightsDisLeft =0
+        self.weightsDisRight =0    
+        self.weightSpeed =0
+
+        self.weightsItemTop =0
+        self.weightsItemBottom =0
+        self.weightsItemLeft =0
+        self.weightsItemRight =0 
+        self.bias = 0
+
+        if(isWin):
+            self.weightsDisTop += betterWeights.weightsDisTop
+            self.weightsDisBottom+=betterWeights.weightsDisBottom
+            self.weightsDisLeft +=betterWeights.weightsDisLeft
+            self.weightsDisRight +=betterWeights.weightsDisRight
+            self.weightSpeed += betterWeights.weightSpeed
+            self.bias+= betterWeights.bias
+            self.weightsItemTop +=betterWeights.weightsItemTop
+            self.weightsItemBottom += betterWeights.weightsItemBottom
+            self.weightsItemLeft +=betterWeights.weightsItemLeft
+            self.weightsItemRight +=betterWeights.weightsItemRight
+            return
+
+        typeCar = rd.randint(6,20) if isFirst == False else 0
+        if typeCar == 0:
+            self.weightsDisTop += 1
+            self.weightsDisBottom += 1
+            self.weightsDisLeft += 1
+            self.weightsDisRight += 1    
+            self.weightSpeed += 1 
+            self.bias += 0.001
+            self.weightsItemTop += 1 
+            self.weightsItemBottom +=1  
+            self.weightsItemLeft += 1 
+            self.weightsItemRight += 1    
+            
+        elif typeCar > 0 and typeCar <=3:
+            self.bias += betterWeights.bias * getRandoValue(1) 
+            self.weightsDisTop += betterWeights.weightsDisTop * getRandoValue(1) 
+            self.weightsDisBottom +=betterWeights.weightsDisBottom * getRandoValue(1) 
+            self.weightsDisLeft +=betterWeights.weightsDisLeft* getRandoValue(1)
+            self.weightsDisRight +=betterWeights.weightsDisRight* getRandoValue(1)   
+            self.weightSpeed += betterWeights.weightSpeed* getRandoValue(1) 
+
+            self.weightsItemTop +=betterWeights.weightsItemTop * getRandoValue(1)  
+            self.weightsItemBottom += betterWeights.weightsItemBottom* getRandoValue(1) 
+            self.weightsItemLeft +=betterWeights.weightsItemLeft * getRandoValue(1) 
+            self.weightsItemRight +=betterWeights.weightsItemRight * getRandoValue(1) 
+        elif typeCar > 3 and typeCar <=4:
+            self.bias += betterWeights.bias * getRandoValue(0.5) 
+            self.weightsDisTop += betterWeights.weightsDisTop * getRandoValue(0.5)
+            self.weightsDisBottom +=betterWeights.weightsDisBottom * getRandoValue(0.5)
+            self.weightsDisLeft +=betterWeights.weightsDisLeft* getRandoValue(0.5)
+            self.weightsDisRight +=betterWeights.weightsDisRight* getRandoValue(0.5)  
+            self.weightSpeed += betterWeights.weightSpeed* getRandoValue(0.5)
+
+            self.weightsItemTop +=betterWeights.weightsItemTop * getRandoValue(0.5)
+            self.weightsItemBottom += betterWeights.weightsItemBottom* getRandoValue(0.5)
+            self.weightsItemLeft +=betterWeights.weightsItemLeft * getRandoValue(0.5)
+            self.weightsItemRight +=betterWeights.weightsItemRight * getRandoValue(0.5)
+        elif typeCar > 4 and typeCar <=6:
+            self.bias += betterWeights.bias * getRandoValue(500) 
+            self.weightsDisTop += betterWeights.weightsDisTop + getRandoValue(500)
+            self.weightsDisBottom +=betterWeights.weightsDisBottom + getRandoValue(500)
+            self.weightsDisLeft +=betterWeights.weightsDisLeft+ getRandoValue(500)
+            self.weightsDisRight +=betterWeights.weightsDisRight+ getRandoValue(500) 
+            self.weightSpeed += betterWeights.weightSpeed+ getRandoValue(500)
+
+            self.weightsItemTop +=betterWeights.weightsItemTop + getRandoValue(500)
+            self.weightsItemBottom += betterWeights.weightsItemBottom+ getRandoValue(500)
+            self.weightsItemLeft +=betterWeights.weightsItemLeft + getRandoValue(500)
+            self.weightsItemRight +=betterWeights.weightsItemRight + getRandoValue(500)
+        elif typeCar > 6 and typeCar <=15:
+            valueWeights = ct.mutationFactor*ct.theBest
+
+            self.bias += 0.001 *ct.theBest
+            self.weightsDisTop += betterWeights.weightsDisTop + getRandoValue(valueWeights)
+            self.weightsDisBottom +=betterWeights.weightsDisBottom  + getRandoValue(valueWeights)
+            self.weightsDisLeft +=betterWeights.weightsDisLeft + getRandoValue(valueWeights)
+            self.weightsDisRight +=betterWeights.weightsDisRight + getRandoValue(valueWeights)
+            self.weightSpeed += betterWeights.weightSpeed + getRandoValue(valueWeights)
+
+            self.weightsItemTop +=betterWeights.weightsItemTop + getRandoValue(valueWeights)
+            self.weightsItemBottom += betterWeights.weightsItemBottom + getRandoValue(valueWeights)
+            self.weightsItemLeft +=betterWeights.weightsItemLeft+ getRandoValue(valueWeights)
+            self.weightsItemRight +=betterWeights.weightsItemRight + getRandoValue(valueWeights)
+        else:
+            valueWeights = 1*ct.theBest
+
+            self.bias += 0.05 *ct.theBest
+            self.weightsDisTop += betterWeights.weightsDisTop + getRandoValue(valueWeights)
+            self.weightsDisBottom +=betterWeights.weightsDisBottom  + getRandoValue(valueWeights)
+            self.weightsDisLeft +=betterWeights.weightsDisLeft + getRandoValue(valueWeights)
+            self.weightsDisRight +=betterWeights.weightsDisRight + getRandoValue(valueWeights)
+            self.weightSpeed += betterWeights.weightSpeed + getRandoValue(valueWeights)
+
+            self.weightsItemTop +=betterWeights.weightsItemTop + getRandoValue(valueWeights)
+            self.weightsItemBottom += betterWeights.weightsItemBottom + getRandoValue(valueWeights)
+            self.weightsItemLeft +=betterWeights.weightsItemLeft+ getRandoValue(valueWeights)
+            self.weightsItemRight +=betterWeights.weightsItemRight + getRandoValue(valueWeights)
+
+        pass
+
+class WeightsLeave():
+    def __init__(self,car,betterWeights = None,isWin = False) -> None:
+        self.leave1 =0
+        self.leave2 =0
+        self.leave3 =0
+        self.bias = 0
+     
+
+        typeCar = rd.randint(6,20) if car.isFirst == False else 0
+        if typeCar == 0:
+            self.leave1 += 1
+            self.leave2 += 1
+            self.leave3 +=1 
+            self.bias  +=0.001 
+        elif typeCar > 0 and typeCar <=3:
+            self.bias  +=  betterWeights.bias * getRandoValue(1) 
+            self.leave1 += betterWeights.leave1 * getRandoValue(1) 
+            self.leave2 += betterWeights.leave2 * getRandoValue(1) 
+            self.leave3 += betterWeights.leave3 * getRandoValue(1) 
+
+        elif typeCar > 3 and typeCar <=4:
+            self.bias  +=  betterWeights.bias * getRandoValue(0.5) 
+            self.leave1 += betterWeights.leave1 * getRandoValue(0.5)
+            self.leave2 += betterWeights.leave2 * getRandoValue(0.5)
+            self.leave3 += betterWeights.leave3 * getRandoValue(0.5)
+
+        elif typeCar > 4 and typeCar <=6:
+            self.bias  +=  betterWeights.bias * getRandoValue(200) 
+            self.leave1 += betterWeights.leave1 + getRandoValue(200)
+            self.leave2 += betterWeights.leave2 + getRandoValue(200)
+            self.leave3 += betterWeights.leave3 + getRandoValue(200)
+
+        elif typeCar > 6 and typeCar <=15:
+            valueWeights = ct.mutationFactor*ct.theBest
+            self.bias  +=0.001*ct.theBest 
+            self.leave1 += betterWeights.leave1 + getRandoValue(valueWeights)
+            self.leave2 += betterWeights.leave2 + getRandoValue(valueWeights)
+            self.leave3 += betterWeights.leave3 + getRandoValue(valueWeights)
+  
+        else:
+            valueWeights = 20 #0.1*ct.theBest
+            self.bias  +=0.05*ct.theBest 
+            self.leave1 += betterWeights.leave1 + getRandoValue(valueWeights)
+            self.leave2 += betterWeights.leave2 + getRandoValue(valueWeights)
+            self.leave3 += betterWeights.leave3 + getRandoValue(valueWeights)
+        pass
