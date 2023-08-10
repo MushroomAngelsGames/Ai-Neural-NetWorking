@@ -4,6 +4,9 @@
 🚀 Começando
 * Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
+🎥 Vídeo de Como Utilizar o Simulador
+* https://www.youtube.com/watch?v=SNYwd35Qtdk
+
 📋 Pré-requisitos
 * Python 3
 
